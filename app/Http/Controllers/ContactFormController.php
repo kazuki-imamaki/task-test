@@ -24,8 +24,8 @@ class ContactFormController extends Controller
         //クエリビルダー
         $contacts = DB::table('contact_forms')
         ->select('id', 'your_name', 'title', 'created_at')
-        ->orderBy('created_at', 'desc')
-        ->get();
+        ->orderBy('created_at', 'asc')
+        ->paginate(20);
         // dd($contacts);
 
         return view('contact.index', compact('contacts'));
